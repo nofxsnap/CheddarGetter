@@ -1,1 +1,104 @@
-Test Read Me.
+C# API Wrapper for CheddarGetter
+
+Intro
+
+We decided to open up some of our source at Confer to help other .Net developers integrate with CheddarGetter, a plug-in subscription management and recurring billing system. This C# API wrapper is intended to handle the communication between your application and CheddarGetter.
+
+Our C# API wrapper has implemented all of CheddarGetter’s APIs as of 03/15/2010.
+
+Assumptions
+
+CheddarGetter allows you to specify the unique ID of your Customers between your application and CheddarGetter. CheddarGetter accepts up to a 36 character string, so it can be just about anything, but we’re using a Guid that is hard-coded in the wrapper and the associated data classes. I toyed with making this generic but decided it’d be just as easy for you to change the data type and assumed most would be using Guid here since CheddarGetter’s own id’s are returned as Guids.
+
+If you do need to change this Guid data type, you will have to make the changes on the getCustomerList method in CheddarGetter.cs and the Customer class in CheddarGetterDataClasses.cs.
+
+Customization
+
+Your product’s authentication will be called on virtually every call into the CheddarGetter API wrapper and will be accessed via a few app key settings in your web config. Below is an example of what is required:
+
+<appSettings>
+   <add key=”CheddarGetterUser” value=”YourCGUser” />
+   <add key=”CheddarGetterPassword” value=”YourCGPassword” />
+   <add key=”CheddarGetterProductCode” value=”YourCGProductCode” />
+</appSettings>
+
+The other area of customization is your CheddarGetter subscription plans and items. Everyone will have their own plans and items, so you will have to change the enumerations accordingly in CheddarGetterDataClasses.cs. The examples in the CheddarGetterDataClasses.cs are what Confer is currently using (Free, Trial, Good, Better, Best, Other) for plans and (USER, MB) for items. See below for the code examples:
+
+public enum PlanCodeEnum 
+{ 
+   Free = 1, 
+   Trial, 
+   Good, 
+   Better, 
+   Best, 
+   Other 
+}
+
+public enum ProductItemCode 
+{
+   USER = 1, 
+   MB 
+}
+
+Structure
+
+All of the classes in the CheddarGetter wrapper are static and can be called like so:
+
+CustomerPost newCustomer = new CustomerPost();
+newCustomer.Code = new Guid().ToString();
+newCustomer.Company = “CompanyName”; 
+newCustomer.FirstName = “FirstName”; 
+newCustomer.LastName = “LastName”; 
+newCustomer.Email = “test@test.com”; 
+newCustomer.PlanCode = PlanCodeEnum.Trial;
+
+Customer returnCustomer = CheddarGetter.CreateCustomer(newCustomer);
+
+In the above example we are creating a new customer in CheddarGetter and will return a new Customer object with the new customer data.
+
+The public static methods currently available in our API wrapper are:
+
+AddCustomCharge - Adds a one time custom charge to the customer
+
+AddItem - Adds an item quantity (increments by 1 if the quantity is not specified)
+
+CancelSubscription - Cancels a customer’s subscription 
+
+CreateCustomer - Creates a new customer 
+
+GetCustomer - Gets a specific customer 
+
+GetCustomers - Gets a list of all customers 
+
+GetSubscriptionPlans - Gets a list of all subscription plans 
+
+RemoveItem - Removes an item quantity (decrements by 1 if the quantity is not specified) 
+
+SetItem - Sets an item quantity 
+
+UpdateCustomer - Updates the customer’s name, email, and company name 
+
+UpdateCustomerAndSubscription - Updates the customer’s name, email, company name, subscription plan, and credit card info 
+
+UpdateSubscription - Updates the customer’s subscription plan and credit card info 
+
+UpdateSubscriptionPartial - Updates the customer’s subscription plan and credit card name and zip (Used if the customer’s credit card is already stored and only need to updated partial information - i.e. changing a customer’s plan from one paid plan to another while retaining the same credit card information) 
+
+UpdateSubscriptionPlanOnly - Updates the customer’s subscription plan
+
+Download Source
+
+You can download our C# CheddarGetter API wrapper source here: 
+
+http://libraries.getconfer.com/CheddarGetterCSharpAPIWrapper.zip
+
+Need Help?
+
+The source code itself is fully commented, but if you need more help you can refer to CheddarGetter’s online API documentation:
+
+https://cheddargetter.com/developers
+
+If you still need more help you can drop me a line at john at getconfer dot com. I will do my best to respond.
+
+Enjoy!	
+-John
