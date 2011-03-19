@@ -4,17 +4,17 @@ Intro
 
 We decided to open up some of our source at Confer to help other .Net developers integrate with CheddarGetter, a plug-in subscription management and recurring billing system. This C# API wrapper is intended to handle the communication between your application and CheddarGetter.
 
-Our C# API wrapper has implemented all of CheddarGetter’s APIs as of 03/15/2010.
+Our C# API wrapper has implemented all of CheddarGetter's APIs as of 03/15/2010.
 
 Assumptions
 
-CheddarGetter allows you to specify the unique ID of your Customers between your application and CheddarGetter. CheddarGetter accepts up to a 36 character string, so it can be just about anything, but we’re using a Guid that is hard-coded in the wrapper and the associated data classes. I toyed with making this generic but decided it’d be just as easy for you to change the data type and assumed most would be using Guid here since CheddarGetter’s own id’s are returned as Guids.
+CheddarGetter allows you to specify the unique ID of your Customers between your application and CheddarGetter. CheddarGetter accepts up to a 36 character string, so it can be just about anything, but we're using a Guid that is hard-coded in the wrapper and the associated data classes. I toyed with making this generic but decided it'd be just as easy for you to change the data type and assumed most would be using Guid here since CheddarGetter's own id's are returned as Guids.
 
 If you do need to change this Guid data type, you will have to make the changes on the getCustomerList method in CheddarGetter.cs and the Customer class in CheddarGetterDataClasses.cs.
 
 Customization
 
-Your product’s authentication will be called on virtually every call into the CheddarGetter API wrapper and will be accessed via a few app key settings in your web config. Below is an example of what is required:
+Your product's authentication will be called on virtually every call into the CheddarGetter API wrapper and will be accessed via a few app key settings in your web config. Below is an example of what is required:
 
 <appSettings>
    <add key=”CheddarGetterUser” value=”YourCGUser” />
@@ -62,7 +62,7 @@ AddCustomCharge - Adds a one time custom charge to the customer
 
 AddItem - Adds an item quantity (increments by 1 if the quantity is not specified)
 
-CancelSubscription - Cancels a customer’s subscription 
+CancelSubscription - Cancels a customer's subscription 
 
 CreateCustomer - Creates a new customer 
 
@@ -76,15 +76,15 @@ RemoveItem - Removes an item quantity (decrements by 1 if the quantity is not sp
 
 SetItem - Sets an item quantity 
 
-UpdateCustomer - Updates the customer’s name, email, and company name 
+UpdateCustomer - Updates the customer's name, email, and company name 
 
-UpdateCustomerAndSubscription - Updates the customer’s name, email, company name, subscription plan, and credit card info 
+UpdateCustomerAndSubscription - Updates the customer's name, email, company name, subscription plan, and credit card info 
 
-UpdateSubscription - Updates the customer’s subscription plan and credit card info 
+UpdateSubscription - Updates the customer's subscription plan and credit card info 
 
-UpdateSubscriptionPartial - Updates the customer’s subscription plan and credit card name and zip (Used if the customer’s credit card is already stored and only need to updated partial information - i.e. changing a customer’s plan from one paid plan to another while retaining the same credit card information) 
+UpdateSubscriptionPartial - Updates the customer's subscription plan and credit card name and zip (Used if the customer's credit card is already stored and only need to updated partial information - i.e. changing a customer's plan from one paid plan to another while retaining the same credit card information) 
 
-UpdateSubscriptionPlanOnly - Updates the customer’s subscription plan
+UpdateSubscriptionPlanOnly - Updates the customer's subscription plan
 
 Download Source
 
@@ -94,7 +94,7 @@ http://libraries.getconfer.com/CheddarGetterCSharpAPIWrapper.zip
 
 Need Help?
 
-The source code itself is fully commented, but if you need more help you can refer to CheddarGetter’s online API documentation:
+The source code itself is fully commented, but if you need more help you can refer to CheddarGetter's online API documentation:
 
 https://cheddargetter.com/developers
 
