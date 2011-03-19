@@ -17,9 +17,9 @@ Customization
 Your product's authentication will be called on virtually every call into the CheddarGetter API wrapper and will be accessed via a few app key settings in your web config. Below is an example of what is required:
 
 <appSettings>
-   <add key=”CheddarGetterUser” value=”YourCGUser” />
-   <add key=”CheddarGetterPassword” value=”YourCGPassword” />
-   <add key=”CheddarGetterProductCode” value=”YourCGProductCode” />
+   <add key="CheddarGetterUser" value="YourCGUser" />
+   <add key="CheddarGetterPassword" value="YourCGPassword" />
+   <add key="CheddarGetterProductCode" value="YourCGProductCode" />
 </appSettings>
 
 The other area of customization is your CheddarGetter subscription plans and items. Everyone will have their own plans and items, so you will have to change the enumerations accordingly in CheddarGetterDataClasses.cs. The examples in the CheddarGetterDataClasses.cs are what Confer is currently using (Free, Trial, Good, Better, Best, Other) for plans and (USER, MB) for items. See below for the code examples:
@@ -46,10 +46,10 @@ All of the classes in the CheddarGetter wrapper are static and can be called lik
 
 CustomerPost newCustomer = new CustomerPost();
 newCustomer.Code = new Guid().ToString();
-newCustomer.Company = “CompanyName”; 
-newCustomer.FirstName = “FirstName”; 
-newCustomer.LastName = “LastName”; 
-newCustomer.Email = “test@test.com”; 
+newCustomer.Company = “CompanyName"; 
+newCustomer.FirstName = “FirstName"; 
+newCustomer.LastName = “LastName"; 
+newCustomer.Email = “test@test.com"; 
 newCustomer.PlanCode = PlanCodeEnum.Trial;
 
 Customer returnCustomer = CheddarGetter.CreateCustomer(newCustomer);
