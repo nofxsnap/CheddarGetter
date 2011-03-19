@@ -46,10 +46,10 @@ All of the classes in the CheddarGetter wrapper are static and can be called lik
 
 CustomerPost newCustomer = new CustomerPost();
 newCustomer.Code = new Guid().ToString();
-newCustomer.Company = ÒCompanyName"; 
-newCustomer.FirstName = ÒFirstName"; 
-newCustomer.LastName = ÒLastName"; 
-newCustomer.Email = Òtest@test.com"; 
+newCustomer.Company = "CompanyName"; 
+newCustomer.FirstName = "FirstName"; 
+newCustomer.LastName = "LastName"; 
+newCustomer.Email = "test@test.com"; 
 newCustomer.PlanCode = PlanCodeEnum.Trial;
 
 Customer returnCustomer = CheddarGetter.CreateCustomer(newCustomer);
