@@ -109,7 +109,7 @@ namespace Confer.CheddarGetter
                                                                   ID = (Guid)i.Attribute("id"),
                                                                   Code = (string)i.Attribute("code"),
                                                                   Name = (string)i.Element("name"),
-                                                                  QuantityIncluded = (int)i.Element("quantityIncluded"),
+                                                                  QuantityIncluded = (double)i.Element("quantityIncluded"),
                                                                   IsPeriodic = (bool)i.Element("isPeriodic"),
                                                                   OverageAmount = (float)i.Element("overageAmount"),
                                                                   CreatedDateTime = (DateTime)i.Element("createdDatetime")
