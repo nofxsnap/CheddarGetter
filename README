@@ -86,11 +86,6 @@ UpdateSubscriptionPartial - Updates the customer's subscription plan and credit 
 
 UpdateSubscriptionPlanOnly - Updates the customer's subscription plan
 
-Download Source
-
-You can download our C# CheddarGetter API wrapper source here: 
-
-http://libraries.getconfer.com/CheddarGetterCSharpAPIWrapper.zip
 
 Need Help?
 
@@ -98,7 +93,5 @@ The source code itself is fully commented, but if you need more help you can ref
 
 https://cheddargetter.com/developers
 
-If you still need more help you can drop me a line at john at getconfer dot com. I will do my best to respond.
-
-Enjoy!	
--John
+Enjoy!
+-John Siladie
