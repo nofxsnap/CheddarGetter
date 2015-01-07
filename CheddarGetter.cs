@@ -212,18 +212,20 @@ namespace Confer.CheddarGetter
                     "&lastName={2}" +
                     "&email={3}" +
                     "&company={4}" +
-                    "&subscription[planCode]={5}" +
-                    "&subscription[ccFirstName]={6}" +
-                    "&subscription[ccLastName]={7}" +
-                    "&subscription[ccNumber]={8}" +
-                    "&subscription[ccExpiration]={9}" +
-                    "&subscription[ccCardCode]={10}" +
-                    "&subscription[ccZip]={11}",
+                    "&notes={5}" +
+                    "&subscription[planCode]={6}" +
+                    "&subscription[ccFirstName]={7}" +
+                    "&subscription[ccLastName]={8}" +
+                    "&subscription[ccNumber]={9}" +
+                    "&subscription[ccExpiration]={10}" +
+                    "&subscription[ccCardCode]={11}" +
+                    "&subscription[ccZip]={12}",
                     HttpUtility.UrlEncode(customer.Code),
                     HttpUtility.UrlEncode(customer.FirstName),
                     HttpUtility.UrlEncode(customer.LastName),
                     HttpUtility.UrlEncode(customer.Email),
                     HttpUtility.UrlEncode(customer.Company),
+                    HttpUtility.UrlEncode(customer.Notes),
                     HttpUtility.UrlEncode(customer.PlanCode.ToString().ToUpper()),
                     HttpUtility.UrlEncode(customer.CCFirstName),
                     HttpUtility.UrlEncode(customer.CCLastName),
@@ -270,17 +272,19 @@ namespace Confer.CheddarGetter
                     "&lastName={1}" +
                     "&email={2}" +
                     "&company={3}" +
-                    "&subscription[planCode]={4}" +
-                    "&subscription[ccFirstName]={5}" +
-                    "&subscription[ccLastName]={6}" +
-                    "&subscription[ccNumber]={7}" +
-                    "&subscription[ccExpiration]={8}" +
-                    "&subscription[ccCardCode]={9}" +
-                    "&subscription[ccZip]={10}",
+                    "&notes={4}" +
+                    "&subscription[planCode]={5}" +
+                    "&subscription[ccFirstName]={6}" +
+                    "&subscription[ccLastName]={7}" +
+                    "&subscription[ccNumber]={8}" +
+                    "&subscription[ccExpiration]={9}" +
+                    "&subscription[ccCardCode]={10}" +
+                    "&subscription[ccZip]={11}",
                     HttpUtility.UrlEncode(customer.FirstName),
                     HttpUtility.UrlEncode(customer.LastName),
                     HttpUtility.UrlEncode(customer.Email),
                     HttpUtility.UrlEncode(customer.Company),
+                    HttpUtility.UrlEncode(customer.Notes),
                     HttpUtility.UrlEncode(customer.PlanCode.ToString().ToUpper()),
                     HttpUtility.UrlEncode(customer.CCFirstName),
                     HttpUtility.UrlEncode(customer.CCLastName),
@@ -327,10 +331,12 @@ namespace Confer.CheddarGetter
                     "&lastName={1}" +
                     "&email={2}" +
                     "&company={3}",
+                    "&notes={4}",
                     HttpUtility.UrlEncode(customer.FirstName),
                     HttpUtility.UrlEncode(customer.LastName),
                     HttpUtility.UrlEncode(customer.Email),
-                    HttpUtility.UrlEncode(customer.Company));
+                    HttpUtility.UrlEncode(customer.Company),
+                    HttpUtility.UrlEncode(customer.Notes));
 
                 string result = postRequest(urlBase, urlPath, postParams);
                 XDocument newCustomerXML = XDocument.Parse(result);
