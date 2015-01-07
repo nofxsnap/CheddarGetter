@@ -151,6 +151,7 @@ namespace Confer.CheddarGetter
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Company { get; set; }
+        public string Notes { get; set; }
         public string Email { get; set; }
         public string GatewayToken { get; set; }
         public DateTime CreatedDateTime { get; set; }
@@ -165,6 +166,7 @@ namespace Confer.CheddarGetter
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Company { get; set; }
+        public string Notes { get; set; }
         public PlanCodeEnum PlanCode { get; set; }
         public string CCFirstName { get; set; }
         public string CCLastName { get; set; }
